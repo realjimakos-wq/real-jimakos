@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="el">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,132 +9,191 @@
 
 <style>
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
 }
 
 body{
-    min-height:100vh;
-    background:
-    radial-gradient(circle at top,#8b0000 0%,#250000 25%,#000 70%);
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    padding:20px;
-    color:white;
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+overflow:hidden;
+position:relative;
 }
+
+/* Beach Background */
+
+.bg{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:
+linear-gradient(
+rgba(0,0,0,.35),
+rgba(0,0,0,.55)
+),
+url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1920&q=80');
+
+background-size:cover;
+background-position:center;
+animation:zoomBeach 20s infinite alternate ease-in-out;
+z-index:-2;
+}
+
+
+/* Floating Particles */
+
+.particle{
+position:absolute;
+background:#4fc3ff;
+border-radius:50%;
+opacity:.5;
+animation:float linear infinite;
+z-index:-1;
+}
+
 
 .container{
-    width:100%;
-    max-width:450px;
-    text-align:center;
+width:100%;
+max-width:420px;
+text-align:center;
 }
 
-.profile{
-    margin-bottom:30px;
+.card{
+background:rgba(0,0,0,.45);
+backdrop-filter:blur(15px);
+border:1px solid rgba(255,255,255,.15);
+border-radius:30px;
+padding:35px;
+text-align:center;
+box-shadow:0 0 30px rgba(0,0,0,.4);
 }
 
-.profile img{
-    width:130px;
-    height:130px;
-    border-radius:50%;
-    border:4px solid #ff0000;
-    box-shadow:0 0 25px rgba(255,0,0,.6);
-    object-fit:cover;
+.avatar{
+width:130px;
+height:130px;
+border-radius:50%;
+object-fit:cover;
+border:4px solid rgb(155, 79, 255);
+box-shadow:0 0 30px rgba(155, 79, 255, 0.5);
 }
 
-.profile h1{
-    margin-top:15px;
-    font-size:2rem;
-    font-weight:700;
+h1{
+margin-top:15px;
+color:white;
+font-size:2rem;
 }
 
-.profile p{
-    color:#cfcfcf;
-    margin-top:8px;
+.bio{
+margin-top:10px;
+color:#ddd;
+margin-bottom:25px;
 }
 
 .links{
-    display:flex;
-    flex-direction:column;
-    gap:15px;
+display:flex;
+flex-direction:column;
+gap:15px;
 }
 
 .link{
-    text-decoration:none;
-    color:white;
-    padding:18px;
-    border-radius:18px;
-    background:rgba(255,255,255,.05);
-    border:1px solid rgba(255,0,0,.4);
-    backdrop-filter:blur(10px);
-    transition:0.3s;
-    font-weight:600;
+display:block;
+padding:16px;
+border-radius:18px;
+text-decoration:none;
+color:white;
+font-weight:600;
+background:rgba(255,255,255,.08);
+border:1px solid rgb(155, 79, 255);
+transition:.3s;
 }
 
 .link:hover{
-    transform:translateY(-4px);
-    background:#c40000;
-    box-shadow:0 0 20px rgba(255,0,0,.6);
+background:rgba(146, 79, 255, 0.3);
+box-shadow:0 0 20px rgba(155, 79, 255, 0.6);
 }
 
 .footer{
-    margin-top:30px;
-    color:#888;
-    font-size:14px;
+margin-top:20px;
+color:#bbb;
+font-size:13px;
 }
 </style>
 </head>
+
 <body>
 
+<div class="bg"></div>
+
+<script>
+for(let i=0;i<40;i++){
+let p=document.createElement("div");
+p.classList.add("particle");
+
+let size=Math.random()*6+2;
+
+
+
+document.body.appendChild(p);
+}
+</script>
+
 <div class="container">
+<div class="card">
 
-    <div class="profile">
-        <img src="https://cdn.discordapp.com/avatars/815705700729880628/1c23fd24043e0f36d1a014a520860015.webp?size=1024">
-        <h1>𝐑𝐞𝐚𝐥 𝐉𝐢𝐦𝐚𝐤𝐨𝐬</h1>
-        <p>Gaming • Community • Discord</p>
-    </div>
+<img class="avatar"
+src="https://cdn.discordapp.com/avatars/815705700729880628/1c23fd24043e0f36d1a014a520860015.webp?size=1024">
 
-    <div class="links">
+<h1>𝐑𝐞𝐚𝐥 𝐉𝐢𝐦𝐚𝐤𝐨𝐬</h1>
 
-        <a class="link"
-        href="https://www.youtube.com/@ChillzoneTeam-i9i"
-        target="_blank">
-        🎥 YouTube
-        </a>
+<p class="bio">
+💚 Gaming • Community • Discord 💚
+</p>
 
-        <a class="link"
+<div class="links">
+
+<a class="link"
+href="https://www.youtube.com/@ChillzoneTeam-i9i"
+target="_blank">
+💜 YouTube 💜
+</a>
+
+<a class="link"
         href="https://discord.gg/kXfEqsftDT"
         target="_blank">
-        🌴 Velocity Roleplay
+        💜 Velocity Roleplay 💜
         </a>
 
-        <a class="link"
-        href="https://discord.gg/5nZRf2hqVD"
-        target="_blank">
-        💬 Discord Server #1
-        </a>
+<a class="link"
+href="https://discord.gg/5nZRf2hqVD"
+target="_blank">
+💜 ChillZone Community 💜
+</a>
 
-        <a class="link"
-        href="https://discord.gg/5DsdMGxu3W"
-        target="_blank">
-        🔥 Discord Server #2
-        </a>
+<a class="link"
+href="https://discord.gg/5DsdMGxu3W"
+target="_blank">
+💜 The BCC Family 💜
+</a>
 
-        <a class="link"
-        href="https://discord.gg/CuUeEmHBkx"
-        target="_blank">
-        🚀 Discord Server #3
-        </a>
+<a class="link"
+href="https://discord.gg/CuUeEmHBkx"
+target="_blank">
+💜 Jimakos Factory Studios 💜
+</a>
 
-    </div>
+</div>
 
-    <div class="footer">
-        © Real Jimakos
-    </div>
+<div class="footer">
+©️ Real Jimakos
+</div>
 
+</div>
 </div>
 
 </body>
